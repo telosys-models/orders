@@ -1,0 +1,17 @@
+// Entity CustomerAddress
+@DbTable(T_CUSTOMER_ADDRESS)
+CustomerAddress {
+  // attributes
+  id : int { @Id } ;
+  street     : string { @Size(30) @NotNull @NotEmpty };
+  complement : string { @Size(30) @NotNull };
+  zipCode    : string { @Size(10) @NotNull @NotEmpty };
+  city       : string { @Size(34) @NotNull @NotEmpty };
+  state      : string { @Size(34) @NotNull @NotEmpty } ;
+
+  // FK 
+  customerId : int { @FK(Customer) } ;
+
+  // links
+  //customer : Customer ;
+}

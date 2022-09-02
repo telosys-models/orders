@@ -1,0 +1,17 @@
+// Entity CustomerAddress
+@DbTable(T_DELIVERY_ADDRESS)
+DeliveryAddress {
+  // Primary Key
+  id : int { @Id } ;
+
+  // FK to AggregateRoot
+  orderNum : int { @FK(Order) } ; 
+
+  // attributes
+  street     : string { @Size(30) @NotNull @NotEmpty };
+  complement : string { @Size(30)  };
+  zipCode    : string { @Size( 8) @NotNull @NotEmpty };
+  city       : string { @Size(40) @NotNull @NotEmpty };
+  state      : string { @Size(20) @NotNull @NotEmpty } ;
+
+}

@@ -1,0 +1,11 @@
+// Entity Customer
+
+@AggregateRoot
+@DbTable(T_CUSTOMER)
+Customer {
+  id : int { @Id @ObjectType @NotNull } ;
+  firstName : string { @NotNull @NotEmpty @Size(60) } ;
+  lastName  : string { @NotNull @NotEmpty @Size(40) } ; 
+
+  address : CustomerAddress ;
+}

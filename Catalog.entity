@@ -1,0 +1,9 @@
+// Entity 
+
+@AggregateRoot
+@DbTable(T_CATALOG)
+Catalog {
+  season : short { @Id @NotNull @Min(2000) @Max(2050) };  
+  brand  : short { @Id @NotNull @Min(1) @Max(999)} ;
+  title  : string { @NotNull @NotEmpty @Size(50) } ;  
+}

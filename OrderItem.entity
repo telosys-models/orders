@@ -1,0 +1,21 @@
+
+@DbTable(T_ORDER_ITEM)
+OrderItem {
+
+  id : long { @Id } ;
+  
+  // FK to AggregateRoot
+  orderNum : int { @FK(Order) } ; 
+  
+  // FK to Product (in another aggregate)
+  productCode : string { @NotNull @Size(10) @FK(Product)  } ; 
+  // No link to Product (no in the aggregate, just FK)
+  // product : Product ;
+  
+  quantity  : short   { @Min(1) @Max(999) @NotNull @DefaultValue(1)} ;
+  unitPrice : decimal { @NotNull } ;
+  discount  : decimal { @NotNull @Max(50) } ;
+  
+  comment : string { @Size(120) } ; 
+
+}

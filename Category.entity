@@ -1,0 +1,7 @@
+// Entity 
+
+@DbTable(T_CATEGORY)
+Category {
+  code : short { @Id @NotNull };  
+  name : string { @Size(60) } ; 
+}

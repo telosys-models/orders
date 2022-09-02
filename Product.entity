@@ -1,0 +1,25 @@
+// Entity 
+@DbTable(T_PRODUCT)
+@AggregateRoot
+Product {
+  code : string { @Id @Size(5) @DbType("CHAR(5)") @NotNull @MinLen(10) };
+  
+  name : string { @Size(60) @NotNull @NotEmpty } ; 
+  description : string { @Size(120) } ; 
+  
+  unitPrice : decimal { @NotNull } ;
+
+  inStock : boolean ;
+  activeForSale : boolean ;
+
+  // Ref to Category  
+  categoryId : short { @FK(Category) } ;
+  // Link to Category  
+  category : Category ;
+  
+  // Ref to Catalog  
+  catalogSeason : short { @FK(FK_PROD_CATALOG, Catalog.season ) } ;
+  catalogBrand  : short { @FK(FK_PROD_CATALOG, Catalog.brand )} ;
+  // No link not in aggregate 
+  // catalog : Catalog ;
+}
