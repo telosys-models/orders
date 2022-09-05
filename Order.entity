@@ -8,8 +8,10 @@ Order {
   orderDate : date  { @NotNull @Label("order date")} ;
   status  : short { @NotNull @DefaultValue(0) };
   comment : string { @Size(120) } ; 
+
   // FK referencing Customer
   customerId : int { @FK(Customer) } ;
+
   // Links
   items : OrderItem[] ;  // One to Many
   deliveryAddress : DeliveryAddress ; // Many to One
